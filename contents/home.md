@@ -1,8 +1,8 @@
 
 
-[![Jiameng Liu](https://img.shields.io/badge/senli1073-github-blue?logo=github)](https://github.com/senli1073)
+[![Jiameng Liu](https://github.com/SaberPRC)](https://github.com/SaberPRC)
 
-He is currently a Fellow in the Department of Earth and Planetary Sciences (EPS) at Harvard University.
+He is currently a PostDoc fellow in the BIRC at UNC at Chapel Hill.
 
 #### Contact
 
