@@ -1,6 +1,6 @@
 
 
-[![Jiameng Liu](https://github.com/SaberPRC)](https://github.com/SaberPRC)
+[![Jiameng Liu]](https://github.com/SaberPRC)
 
 He is currently a PostDoc fellow in the BIRC at UNC at Chapel Hill.
 
