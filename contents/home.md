@@ -2,7 +2,7 @@
 
 [![Jiameng Liu]](https://github.com/SaberPRC)
 
-He is currently a PostDoc fellow in the BIRC at UNC at Chapel Hill.
+I am currently a PostDoc fellow in the BIRC at UNC at Chapel Hill.
 
 #### Contact
 
