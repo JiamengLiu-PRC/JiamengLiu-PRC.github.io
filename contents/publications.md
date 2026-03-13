@@ -1,4 +1,7 @@
 #### 2026
+- <strong>Jiameng Liu</strong>*, _et al._, BrainParc: Unified lifespan brain parcellation from structural magnetic resonance images. <strong>_Nature Computational Science_</strong>, 2026. [[Paper]](https://www.nature.com/articles/s43588-026-00963-5)
+
+
 - <strong>Jiameng Liu</strong>*, _et al._, Preterm Birth Associated Structure Alterations in Cerebellum Lobules in
 Children. <strong>_OHBM_</strong>, 2026. [[Paper]](https://www.researchgate.net/publication/400734810_Preterm_Birth_Associated_Structure_Alterations_in_Cerebellum_Lobules_in_Children)
 
