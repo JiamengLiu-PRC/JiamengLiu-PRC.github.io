@@ -1,0 +1,157 @@
+- id: unisurf-2026
+  year: 2026
+  title: "UniSurf: Universal Lifespan Cortical Surface Reconstruction"
+  authors: "<strong>Jiameng Liu</strong>*, <em>et al.</em>"
+  venue: "Medical Image Analysis"
+  note: "Journal article"
+  status: "2026"
+  keywords:
+    - Cortical surface reconstruction
+    - Lifespan MRI
+    - Neuroimage analysis
+  summary: "Universal lifespan cortical surface reconstruction framework."
+  contribution: "Edit this field with the key method contribution, dataset, result highlights, and your role."
+  links:
+    Paper: "https://www.sciencedirect.com/science/article/pii/S1361841526001593"
+    Code: "https://github.com/LianZifeng/UniSurf"
+  bibtex: ""
+
+- id: brainparc-ncs-2026
+  year: 2026
+  title: "BrainParc: Unified lifespan brain parcellation from structural magnetic resonance images"
+  authors: "<strong>Jiameng Liu</strong>*, <em>et al.</em>"
+  venue: "Nature Computational Science"
+  note: "Journal article"
+  status: "2026"
+  keywords:
+    - Brain parcellation
+    - Structural MRI
+    - Lifespan analysis
+  summary: "Unified lifespan brain parcellation from structural MRI."
+  contribution: "Edit this field with the major technical novelty, validation cohort, and impact."
+  links:
+    Paper: "https://www.nature.com/articles/s43588-026-00963-5"
+    Code: "https://github.com/SaberPRC/BrainParc"
+  bibtex: ""
+
+- id: cerebellum-preterm-ohbm-2026
+  year: 2026
+  title: "Preterm Birth Associated Structure Alterations in Cerebellum Lobules in Children"
+  authors: "<strong>Jiameng Liu</strong>*, <em>et al.</em>"
+  venue: "OHBM"
+  note: "Conference abstract"
+  status: "2026"
+  keywords:
+    - Preterm birth
+    - Cerebellum lobules
+    - Pediatric neuroimaging
+  summary: "Analysis of cerebellar lobule structure alterations associated with preterm birth in children."
+  contribution: "Edit this field with the analysis design, key findings, and clinical relevance."
+  links:
+    Paper: "https://www.researchgate.net/publication/400734810_Preterm_Birth_Associated_Structure_Alterations_in_Cerebellum_Lobules_in_Children"
+  bibtex: ""
+
+- id: brainparc-ismrm-2025
+  year: 2025
+  title: "BrainParc: Unified Lifespan Brain Parcellation with Anatomy-guided Progressive Transmission"
+  authors: "<strong>Jiameng Liu</strong>*, <em>et al.</em>"
+  venue: "ISMRM"
+  note: "Conference abstract"
+  status: "2025"
+  keywords:
+    - Brain parcellation
+    - Anatomy-guided learning
+    - MRI
+  summary: "Anatomy-guided progressive transmission framework for unified lifespan brain parcellation."
+  contribution: "Edit this field with method details, evaluation settings, and main results."
+  links:
+    Paper: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=sEX4njEAAAAJ&citation_for_view=sEX4njEAAAAJ:MXK_kJrjxJIC"
+    Code: "https://github.com/SaberPRC/BrainParc"
+  bibtex: ""
+
+- id: uintseg-miccai-2024
+  year: 2024
+  title: "UinTSeg: Unified Infant Brain Tissue Segmentation with Anatomy Delineation"
+  authors: "<strong>Jiameng Liu</strong>*, <em>et al.</em>"
+  venue: "MICCAI"
+  note: "Conference paper"
+  status: "2024"
+  keywords:
+    - Infant brain MRI
+    - Tissue segmentation
+    - Anatomy delineation
+  summary: "Unified infant brain tissue segmentation with explicit anatomy delineation."
+  contribution: "Edit this field with the model design, training strategy, and segmentation performance."
+  links:
+    Paper: "https://link.springer.com/chapter/10.1007/978-3-031-72069-7_46"
+    Code: "https://github.com/SaberPRC/UinTSeg"
+  bibtex: ""
+
+- id: dhsampling-mlmi-2024
+  year: 2024
+  title: "DHSampling: Diversity-Based Hyperedge Sampling in GNN Learning with Application to Medical Imaging Classification"
+  authors: "<strong>Jiameng Liu</strong>*, <em>et al.</em>"
+  venue: "MLMI workshop, MICCAI"
+  note: "Workshop paper"
+  status: "2024"
+  keywords:
+    - Graph neural networks
+    - Hyperedge sampling
+    - Medical imaging classification
+  summary: "Diversity-based hyperedge sampling strategy for GNN learning in medical imaging classification."
+  contribution: "Edit this field with the sampling motivation, algorithm detail, and classification gains."
+  links:
+    Paper: "https://link.springer.com/chapter/10.1007/978-3-031-73284-3_40"
+  bibtex: ""
+
+- id: isointense-jbhi-2024
+  year: 2024
+  title: "Structure-aware brain tissue segmentation for isointense infant MRI data using multi-phase multi-scale assistance network"
+  authors: "<strong>Jiameng Liu</strong>*, <em>et al.</em>"
+  venue: "IEEE Journal of Biomedical and Health Informatics"
+  note: "Journal article"
+  status: "2024"
+  keywords:
+    - Isointense infant MRI
+    - Brain tissue segmentation
+    - Multi-scale assistance
+  summary: "Structure-aware segmentation for isointense infant MRI using a multi-phase, multi-scale assistance network."
+  contribution: "Edit this field with the phase design, structure-aware module, and reported improvements."
+  links:
+    Paper: "https://ieeexplore.ieee.org/abstract/document/10684683"
+    Code: "https://github.com/SaberPRC/Isointense_Infant_Brain_Tissue_Segmentation"
+  bibtex: ""
+
+- id: serial-infant-mlmi-2023
+  year: 2023
+  title: "Consistent and accurate segmentation for serial infant brain MR images with registration assistance"
+  authors: "<strong>Jiameng Liu</strong>*, <em>et al.</em>"
+  venue: "MLMI workshop, MICCAI"
+  note: "Workshop paper"
+  status: "2023"
+  keywords:
+    - Serial infant MRI
+    - Registration assistance
+    - Segmentation consistency
+  summary: "Registration-assisted method for consistent and accurate serial infant brain MR image segmentation."
+  contribution: "Edit this field with the temporal/registration strategy and consistency metrics."
+  links:
+    Paper: "https://link.springer.com/chapter/10.1007/978-3-031-45673-2_19"
+  bibtex: ""
+
+- id: adult-like-phase-miccai-2023
+  year: 2023
+  title: "Adult-Like Phase and Multi-scale Assistance for Isointense Infant Brain Tissue Segmentation"
+  authors: "<strong>Jiameng Liu</strong>*, <em>et al.</em>"
+  venue: "MICCAI"
+  note: "Conference paper"
+  status: "2023"
+  keywords:
+    - Infant brain tissue segmentation
+    - Adult-like phase
+    - Multi-scale assistance
+  summary: "Adult-like phase and multi-scale assistance approach for isointense infant brain tissue segmentation."
+  contribution: "Edit this field with the problem setting, adult-like phase idea, and experimental results."
+  links:
+    Paper: "https://link.springer.com/chapter/10.1007/978-3-031-43901-8_6"
+  bibtex: ""
