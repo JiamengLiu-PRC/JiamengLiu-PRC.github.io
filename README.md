@@ -1,24 +1,24 @@
-# GitHub Pages 个人学术主页模板：多页面版
+# GitHub Pages Academic Homepage Template: Multipage Version
 
-这是一个无需构建工具、无需 Jekyll、无需 Node/npm 的纯静态个人学术主页模板。所有主要栏目已经拆成独立页面，避免单页过长。
+This is a pure static academic homepage template. It requires no build tool, no Jekyll, and no Node/npm. All major sections are split into separate pages, so the homepage stays concise.
 
-## 页面结构
+## Page Structure
 
 ```text
 .
-├── index.html                  # 首页：简介 + 最新 News / Publications / Software 摘要
-├── about.html                  # About 独立页
-├── news.html                   # News 独立页
-├── publications.html           # Publications 列表页
-├── software.html               # Software 独立页
-├── others.html                 # Others 独立页
-├── contact.html                # Contact 独立页
+├── index.html                  # Homepage: profile + latest News / Publications / Software highlights
+├── about.html                  # About page
+├── news.html                   # News page
+├── publications.html           # Publications list page
+├── software.html               # Software page
+├── others.html                 # Others page
+├── contact.html                # Contact page
 ├── 404.html
 ├── .nojekyll
 ├── assets/
 │   ├── css/style.css
-│   ├── js/data.js              # 主要编辑这里
-│   ├── js/site.js              # 渲染与交互逻辑
+│   ├── js/data.js              # Main content file to edit
+│   ├── js/site.js              # Rendering and interaction logic
 │   ├── img/profile.svg
 │   ├── img/favicon.svg
 │   └── img/og-default.svg
@@ -30,25 +30,25 @@
     └── publication-template.html
 ```
 
-## 已实现功能
+## Features
 
-- 多页面导航：Home / About / News / Publications / Software / Others / Contact。
-- 首页不再放全部内容，只放摘要和入口。
-- Publications 列表页支持筛选。
-- 每篇论文都有独立详情页。
-- 论文详情页支持摘要、作者、venue、引用格式、BibTeX、PDF/代码/数据链接、一键复制。
-- 响应式设计、深色模式、移动端导航。
-- SEO 基础：title、description、canonical、Open Graph、JSON-LD。
+- Multipage navigation: Home / About / News / Publications / Software / Others / Contact.
+- A concise homepage with summaries and links to full pages.
+- Publication list page with filters.
+- A dedicated detail page for each publication.
+- Publication detail pages include abstract, authors, venue, citation, BibTeX, PDF/code/data links, and copy buttons.
+- Responsive layout, dark mode, and mobile navigation.
+- SEO basics: title, description, canonical URL, Open Graph, and JSON-LD.
 
-## 如何修改个人信息
+## How to Edit Personal Information
 
-打开：
+Open:
 
 ```text
 assets/js/data.js
 ```
 
-重点修改：
+Edit these fields first:
 
 ```js
 siteUrl: "https://username.github.io",
@@ -61,34 +61,34 @@ interests: [...],
 links: [...]
 ```
 
-部署后请把 `siteUrl` 改成你的真实地址，例如：
+After deployment, change `siteUrl` to your real GitHub Pages URL, for example:
 
 ```js
 siteUrl: "https://jiamengliu-prc.github.io"
 ```
 
-## 如何替换照片
+## How to Replace the Profile Photo
 
-把照片放到：
+Put your photo here:
 
 ```text
 assets/img/profile.jpg
 ```
 
-然后在 `assets/js/data.js` 中修改：
+Then update `assets/js/data.js`:
 
 ```js
 profilePhoto: "assets/img/profile.jpg",
-profilePhotoAlt: "Jiameng Liu 的照片"
+profilePhotoAlt: "Portrait of Jiameng Liu"
 ```
 
-建议使用正方形头像，例如 800 × 800 像素。
+A square image, such as 800 × 800 pixels, is recommended.
 
-## 如何新增论文
+## How to Add a Publication
 
-### 第一步：在 data.js 添加论文数据
+### Step 1: Add the publication data
 
-在 `assets/js/data.js` 的 `publications` 数组中添加：
+Add a new object to the `publications` array in `assets/js/data.js`:
 
 ```js
 {
@@ -101,62 +101,62 @@ profilePhotoAlt: "Jiameng Liu 的照片"
   venueShort: "CONF 2026",
   venueType: "Conference",
   year: 2026,
-  summary: "列表页摘要",
-  abstract: "详情页完整摘要",
+  summary: "Short summary for the publication list page.",
+  abstract: "Full abstract for the detail page.",
   tags: ["Machine Learning", "Evaluation"],
   citation: "...",
   bibtex: `@inproceedings{...}`
 }
 ```
 
-### 第二步：创建论文详情页
+### Step 2: Create the publication detail page
 
-复制：
+Copy:
 
 ```text
 templates/publication-template.html
 ```
 
-到：
+To:
 
 ```text
 publications/2026-new-paper.html
 ```
 
-然后修改新 HTML 文件中的：
+Then update the new HTML file:
 
 ```html
-<body data-page="publications" data-publication-id="CHANGE-ME-PUBLICATION-ID">
+<body data-publication-id="CHANGE-ME-PUBLICATION-ID">
 ```
 
-把 `CHANGE-ME-PUBLICATION-ID` 改成 data.js 中的 `id`，例如：
+Change `CHANGE-ME-PUBLICATION-ID` to the `id` from `assets/js/data.js`, for example:
 
 ```html
-<body data-page="publications" data-publication-id="liu-2026-new-paper">
+<body data-publication-id="liu-2026-new-paper">
 ```
 
-同时建议修改 `<title>` 和 `<meta name="description">`，这样每篇论文的浏览器标题和社交分享预览更准确。
+You should also update `<title>` and `<meta name="description">` so each publication has an accurate browser title and social preview.
 
-## 如何部署
+## How to Deploy
 
-1. 解压 zip。
-2. 把 `academic-githubio-multipage/` 里面的所有文件上传到你的 `username.github.io` 仓库根目录。
-3. 修改 `assets/js/data.js`。
-4. Commit 并 push。
-5. 等待 GitHub Pages 自动发布。
+1. Unzip the package.
+2. Upload all files inside `academic-githubio-multipage-en/` to the root of your `username.github.io` repository.
+3. Edit `assets/js/data.js`.
+4. Commit and push.
+5. Wait for GitHub Pages to publish the site.
 
-## 本地预览
+## Local Preview
 
-建议在解压后的目录运行：
+Run this command in the unzipped folder:
 
 ```bash
 python -m http.server 8000
 ```
 
-然后打开：
+Then open:
 
 ```text
 http://localhost:8000
 ```
 
-不要直接双击 HTML 文件预览，因为绝对路径、浏览器安全策略和模块加载可能导致表现和 GitHub Pages 不一致。
+Avoid previewing by double-clicking HTML files, because absolute paths, browser security rules, and local file loading behavior may differ from GitHub Pages.

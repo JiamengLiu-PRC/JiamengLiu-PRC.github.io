@@ -1,7 +1,7 @@
 (function () {
   const $ = (selector) => document.querySelector(selector);
   const $$ = (selector) => Array.from(document.querySelectorAll(selector));
-  const state = { pubFilter: "全部" };
+  const state = { pubFilter: "All" };
 
   function escapeHtml(value) {
     return String(value ?? "")
@@ -64,7 +64,7 @@
     const a = document.createElement("a");
     a.className = className;
     a.href = withBase(link.url || "#");
-    a.textContent = link.label || "链接";
+    a.textContent = link.label || "Link";
     if (shouldOpenNewTab(a.href)) {
       a.target = "_blank";
       a.rel = "noopener noreferrer";
@@ -76,7 +76,7 @@
     if (!value) return "";
     const date = new Date(`${value}T00:00:00`);
     if (Number.isNaN(date.getTime())) return value;
-    return new Intl.DateTimeFormat(siteData.lang || "zh-CN", { year: "numeric", month: "short", day: "numeric" }).format(date);
+    return new Intl.DateTimeFormat(siteData.lang || "en-US", { year: "numeric", month: "short", day: "numeric" }).format(date);
   }
 
   function getAuthorString(pub) {
@@ -139,7 +139,7 @@
     const photo = $("#profile-photo");
     if (photo) {
       photo.src = withBase(siteData.profilePhoto);
-      photo.alt = siteData.profilePhotoAlt || `${siteData.name} 的照片`;
+      photo.alt = siteData.profilePhotoAlt || `Portrait of ${siteData.name}`;
     }
     setHTML("#interest-list", (siteData.interests || []).map((item) => `<li class="chip">${escapeHtml(item)}</li>`).join(""));
 
@@ -179,7 +179,7 @@
   function renderPublicationFilters() {
     const container = $("#publication-filters");
     if (!container) return;
-    const types = ["全部", "精选", ...new Set((siteData.publications || []).map((item) => item.venueType).filter(Boolean))];
+    const types = ["All", "Selected", ...new Set((siteData.publications || []).map((item) => item.venueType).filter(Boolean))];
     container.innerHTML = "";
     types.forEach((type) => {
       const button = document.createElement("button");
@@ -198,18 +198,18 @@
 
   function visiblePublications(limit) {
     let pubs = [...(siteData.publications || [])].sort((a, b) => b.year - a.year || String(b.month || "").localeCompare(String(a.month || "")));
-    if (state.pubFilter === "精选") pubs = pubs.filter((item) => item.selected || item.featured);
-    else if (state.pubFilter !== "全部") pubs = pubs.filter((item) => item.venueType === state.pubFilter);
+    if (state.pubFilter === "Selected") pubs = pubs.filter((item) => item.selected || item.featured);
+    else if (state.pubFilter !== "All") pubs = pubs.filter((item) => item.venueType === state.pubFilter);
     return limit ? pubs.slice(0, limit) : pubs;
   }
 
   function publicationCard(pub, compact = false) {
     const article = document.createElement("article");
     article.className = `pub-card surface-card ${pub.featured ? "is-featured" : ""}`;
-    const actionLinks = [{ label: "详情", url: pub.path || `publications/${pub.slug}.html` }];
+    const actionLinks = [{ label: "Details", url: pub.path || `publications/${pub.slug}.html` }];
     if (pub.pdf) actionLinks.push({ label: "PDF", url: pub.pdf });
-    if (pub.code) actionLinks.push({ label: "代码", url: pub.code });
-    if (!compact && pub.data) actionLinks.push({ label: "数据", url: pub.data });
+    if (pub.code) actionLinks.push({ label: "Code", url: pub.code });
+    if (!compact && pub.data) actionLinks.push({ label: "Data", url: pub.data });
     article.innerHTML = `
       <div class="pub-meta-line">
         <div class="chip-row">
@@ -286,7 +286,7 @@
 
   function renderContactPage() {
     setText("#contact-email", siteData.email);
-    setText("#contact-text", `欢迎就合作、交流、学生申请或学术讨论写信至 ${siteData.email}。`);
+    setText("#contact-text", `For collaborations, research discussions, student inquiries, or academic opportunities, feel free to email me at ${siteData.email}.`);
     const box = $("#contact-links");
     if (box) {
       box.innerHTML = "";
@@ -312,7 +312,7 @@
     script.textContent = JSON.stringify(payload, null, 2);
   }
 
-  function createCopyButton(text, label = "复制") {
+  function createCopyButton(text, label = "Copy") {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "button ghost button-small";
@@ -320,10 +320,10 @@
     button.addEventListener("click", async () => {
       try {
         await navigator.clipboard.writeText(text);
-        button.textContent = "已复制";
+        button.textContent = "Copied";
         setTimeout(() => (button.textContent = label), 1200);
       } catch (error) {
-        window.prompt("请手动复制以下内容：", text);
+        window.prompt("Please copy the following text manually:", text);
       }
     });
     return button;
@@ -336,7 +336,7 @@
     const detail = $("#publication-detail");
     const sidebar = $("#publication-sidebar");
     if (!pub || !detail) {
-      if (detail) detail.innerHTML = `<article class="surface-card detail-block"><h1>未找到论文条目</h1><p>请检查 data-publication-id 是否和 assets/js/data.js 中的 publication id 一致。</p><p><a href="${withBase('publications.html')}">返回论文列表</a></p></article>`;
+      if (detail) detail.innerHTML = `<article class="surface-card detail-block"><h1>Publication not found</h1><p>Please check whether data-publication-id matches the publication id in assets/js/data.js.</p><p><a href="${withBase('publications.html')}">Back to publications</a></p></article>`;
       return;
     }
 
@@ -363,7 +363,7 @@
     }
 
     detail.innerHTML = `
-      <nav class="breadcrumb" aria-label="面包屑导航"><a href="${withBase('publications.html')}">Publications</a><span aria-hidden="true">/</span><span>${escapeHtml(pub.year)}</span></nav>
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="${withBase('publications.html')}">Publications</a><span aria-hidden="true">/</span><span>${escapeHtml(pub.year)}</span></nav>
       <header class="article-header">
         <div class="chip-row top-gap-small">
           <span class="chip chip-accent">${escapeHtml(pub.venueType || "Publication")}</span>
@@ -375,40 +375,40 @@
         <p class="meta-inline">${escapeHtml(pub.venue)} · ${escapeHtml(pub.month ? `${pub.year}.${pub.month}` : pub.year)}${pub.pages ? ` · pp. ${escapeHtml(pub.pages)}` : ""}</p>
       </header>
       <div class="action-row detail-action-row" id="detail-actions"></div>
-      <section class="surface-card detail-block"><h2>摘要</h2><p>${escapeHtml(pub.abstract || pub.summary || "")}</p></section>
-      <section class="surface-card detail-block" id="citation-block"><div class="section-row"><h2>引用格式</h2></div><pre class="code-block">${escapeHtml(pub.citation || "")}</pre></section>
+      <section class="surface-card detail-block"><h2>Abstract</h2><p>${escapeHtml(pub.abstract || pub.summary || "")}</p></section>
+      <section class="surface-card detail-block" id="citation-block"><div class="section-row"><h2>Citation</h2></div><pre class="code-block">${escapeHtml(pub.citation || "")}</pre></section>
       ${pub.bibtex ? `<section class="surface-card detail-block" id="bibtex-block"><div class="section-row"><h2>BibTeX</h2></div><pre class="code-block">${escapeHtml(pub.bibtex)}</pre></section>` : ""}
-      <section class="surface-card detail-block"><h2>补充信息</h2>${pub.notes?.length ? `<ul class="plain-list">${pub.notes.map((note) => `<li>${escapeHtml(note)}</li>`).join("")}</ul>` : "<p>暂无补充信息。</p>"}<ul class="chip-row top-gap">${(pub.tags || []).map((tag) => `<li class="chip">${escapeHtml(tag)}</li>`).join("")}</ul></section>
+      <section class="surface-card detail-block"><h2>Additional Information</h2>${pub.notes?.length ? `<ul class="plain-list">${pub.notes.map((note) => `<li>${escapeHtml(note)}</li>`).join("")}</ul>` : "<p>No additional information yet.</p>"}<ul class="chip-row top-gap">${(pub.tags || []).map((tag) => `<li class="chip">${escapeHtml(tag)}</li>`).join("")}</ul></section>
     `;
 
     const actions = $("#detail-actions");
     [
       pub.pdf ? { label: "PDF", url: pub.pdf } : null,
       pub.doiUrl || pub.doi ? { label: "DOI", url: pub.doiUrl || `https://doi.org/${pub.doi}` } : null,
-      pub.code ? { label: "代码", url: pub.code } : null,
-      pub.data ? { label: "数据", url: pub.data } : null,
-      pub.project ? { label: "项目", url: pub.project } : null,
+      pub.code ? { label: "Code", url: pub.code } : null,
+      pub.data ? { label: "Data", url: pub.data } : null,
+      pub.project ? { label: "Project", url: pub.project } : null,
       pub.poster ? { label: "Poster", url: pub.poster } : null,
       pub.slides ? { label: "Slides", url: pub.slides } : null
     ].filter(Boolean).forEach((link, index) => actions.appendChild(createAnchor(link, index === 0 ? "button primary button-small" : "button ghost button-small")));
 
     const citationHeader = $("#citation-block .section-row");
-    if (citationHeader) citationHeader.appendChild(createCopyButton(pub.citation || "", "复制引用"));
+    if (citationHeader) citationHeader.appendChild(createCopyButton(pub.citation || "", "Copy Citation"));
     const bibHeader = $("#bibtex-block .section-row");
-    if (bibHeader) bibHeader.appendChild(createCopyButton(pub.bibtex || "", "复制 BibTeX"));
+    if (bibHeader) bibHeader.appendChild(createCopyButton(pub.bibtex || "", "Copy BibTeX"));
 
     if (sidebar) {
       sidebar.innerHTML = `
         <div class="surface-card sidebar-card sticky-card">
-          <h2>论文信息</h2>
+          <h2>Publication Info</h2>
           <dl class="meta-list">
-            <div><dt>年份</dt><dd>${escapeHtml(pub.year)}</dd></div>
-            <div><dt>类型</dt><dd>${escapeHtml(pub.venueType || "Publication")}</dd></div>
+            <div><dt>Year</dt><dd>${escapeHtml(pub.year)}</dd></div>
+            <div><dt>Type</dt><dd>${escapeHtml(pub.venueType || "Publication")}</dd></div>
             <div><dt>Venue</dt><dd>${escapeHtml(pub.venueShort || pub.venue)}</dd></div>
             ${pub.doi ? `<div><dt>DOI</dt><dd>${escapeHtml(pub.doi)}</dd></div>` : ""}
-            ${pub.pages ? `<div><dt>页码</dt><dd>${escapeHtml(pub.pages)}</dd></div>` : ""}
+            ${pub.pages ? `<div><dt>Pages</dt><dd>${escapeHtml(pub.pages)}</dd></div>` : ""}
           </dl>
-          <div class="stack-actions"><a class="button secondary button-small button-block" href="${withBase('publications.html')}">返回论文列表</a></div>
+          <div class="stack-actions"><a class="button secondary button-small button-block" href="${withBase('publications.html')}">Back to Publications</a></div>
         </div>`;
     }
   }
@@ -417,12 +417,12 @@
     const page = document.body.dataset.page || "home";
     const pageTitles = {
       home: ["", siteData.description],
-      about: ["About", "个人简介、研究方向和教育经历。"],
-      news: ["News", "近期研究动态、论文消息和学术活动。"],
-      publications: ["Publications", "论文列表与研究成果。"],
-      software: ["Software", "开源软件、研究工具和代码项目。"],
-      others: ["Others", "教学、服务、报告、获奖等其他学术信息。"],
-      contact: ["Contact", "联系方式与学术交流入口。"]
+      about: ["About", "Biography, research interests, and education."],
+      news: ["News", "Recent research updates, publication news, and academic activities."],
+      publications: ["Publications", "Publication list and research outputs."],
+      software: ["Software", "Open-source software, research tools, and code projects."],
+      others: ["Others", "Teaching, service, talks, awards, and other academic activities."],
+      contact: ["Contact", "Contact information and academic collaboration links."]
     };
     if (!document.body.dataset.publicationId) {
       const path = page === "home" ? "/" : `${page}.html`;
