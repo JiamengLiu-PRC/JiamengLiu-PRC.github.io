@@ -80,15 +80,23 @@ h3 { font-size: 1.1rem; }
 .lead-tight { margin: 16px 0 0; font-size: 1rem; }
 .meta-inline { margin: 10px 0 0; }
 .surface-card { background: linear-gradient(180deg, var(--surface), var(--surface-2)); border: 1px solid var(--line); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
-.profile-card { padding: 18px; }
+
+/*.profile-card { padding: 16px; }*/
+.profile-card {
+  padding: 16px;
+  max-width: 400px;
+  justify-self: center;
+}
 .profile-photo {
-  width: 100%;
-  aspect-ratio: 16 / 9;
+  width: 330px;
+  height: 330px;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   object-position: center top;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 .profile-meta { display: grid; gap: 12px; margin-top: 16px; }
+
 .meta-row { display: flex; justify-content: space-between; gap: 16px; padding-bottom: 12px; border-bottom: 1px dashed var(--line); }
 .meta-row:last-child { border-bottom: 0; padding-bottom: 0; }
 .meta-row strong { text-align: right; }

@@ -14,7 +14,7 @@ const siteData = {
   email: "jiamengliu.prc@gmail.com",
   description: "Jiameng Liu's academic homepage",
   keywords: ["Medical Image Analysis", "Structural MRI", "Brain Structure Delineation"],
-  profilePhoto: "assets/img/persona.jpg",
+  profilePhoto: "assets/img/profile.svg",
   profilePhotoAlt: "Jiameng",
   ogImage: "assets/img/og-default.svg",
   intro: "I am interested in building reliable, reproducible, and universal algorithms for accurate brain sturcture delineation from MRI data.",
